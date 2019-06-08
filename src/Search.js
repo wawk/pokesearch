@@ -1,21 +1,28 @@
 import React, {Component} from 'react';
-import {Text,View} from 'react-native';
+import {Text,View, StyleSheet} from 'react-native';
 import {Header,Item,Icon,Input,Button} from 'native-base'
 import PokeLoader from './PokeLoader';
 import SearchBody from './SearchBody';
-import axios from 'axios';
+
 
 class Search extends Component {
     state= {
         pokeSearch: "",
         onCall: true,
+        data: {},
     }
             searchPoke = () => {
                 this.setState({onCall: true});
-                axios.get("http://pokeapi.co/api/v2/pokemon/"+this.state.pokeSearch.toLowerCase())
+                let self = this;
+                
                 .then(function(response){
                     console.log(response.data);
+                    self.setState({data: response.data});
+                    self.setState({onCall: false});
                 })
+                .catch(function(error){
+                    console.log(error);
+                });
             }  
 
             renderBody = () =>{
@@ -27,14 +34,14 @@ class Search extends Component {
                 }
                 else {
                     return (
-                        <SearchBody/>
+                        <SearchBody data={this.state.data}/>
                     )
                 }
             }
 
     render () {
         return (
-            <View>
+            <View style={styles.viewStyle}>
                <Header
                searchBar
                rounded
@@ -58,5 +65,10 @@ class Search extends Component {
     }
 }
 
+const styles = StyleSheet.create({
+viewStyle: {
+    
+}
+});
 
 export default Search;

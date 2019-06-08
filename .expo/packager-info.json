@@ -1,10 +1,7 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 13268,
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://jf-zms.stevenmoody.pokesearch.exp.direct",
-  "packagerNgrokUrl": "https://packager.jf-zms.stevenmoody.pokesearch.exp.direct",
-  "ngrokPid": 2352,
-  "webpackServerPort": null
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
